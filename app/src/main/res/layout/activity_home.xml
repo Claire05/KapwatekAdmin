@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout_home_emp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                layout="@layout/navigation_action_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/bgGray"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/viewPosts"
+                                android:layout_width="160dp"
+                                android:layout_height="27dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/btn_login_effect"
+                                android:fontFamily="@font/montserrat"
+                                android:text="View all campaigns"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent" />
+
+                            <Button
+                                android:id="@+id/viewLocations"
+                                android:layout_width="140dp"
+                                android:layout_height="27dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="50dp"
+                                android:background="@drawable/btn_login_effect"
+                                android:fontFamily="@font/montserrat"
+                                android:text="View Affected"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent" />
+
+                            <ViewFlipper
+                                android:id="@+id/v_flipper"
+                                android:layout_width="match_parent"
+                                android:layout_height="170dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.0" />
+
+                            <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="150dp"
+                                android:fontFamily="@font/montserrat"
+                                android:text="For Better Unity"
+                                android:textColor="@color/white"
+                                android:textSize="25dp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="120dp"
+                                android:fontFamily="@font/montserrat"
+                                android:text="Help your community."
+                                android:textColor="@color/white"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Categories"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="15dp"
+                                android:gravity="right">
+                           <Button
+                               android:id="@+id/live"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Live"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/accident1" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Accidents and Emergencies"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/accident"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/animal" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Animals and Pets"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/animal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/music" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Music, Arts and Film"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/music"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/education" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="education"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/education"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/medical" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Medical"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/medical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/church" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Mission, Faith, and Church"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/church"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/sport" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Sport, Team, and Clubs"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/sport"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/header" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Volunteer and Services"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/wedding"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="176dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/wedding" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Weddings and Honeymoon"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/volunteer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View Details"
+                                android:textColor="@color/red"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view_emp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:itemTextAppearance="@style/ProximaNovaTextViewStyle"
+        app:menu="@menu/navigation_menu_admin" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

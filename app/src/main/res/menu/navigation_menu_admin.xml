@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/kapwatek">
+
+    <group>
+        <item android:title="Admin">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_home_admin"
+                    android:icon="@drawable/home"
+                    android:title="Home"/>
+
+            </menu>
+        </item>
+    </group>
+
+    <group>
+        <item android:title="Account Management">
+            <menu>
+                <item
+                    android:id="@+id/nav_view_vol"
+                    android:icon="@drawable/ic_people_black_24dp"
+                    app:actionViewClass="android.widget.TextView"
+                    android:title="Volunteer" />
+                <item
+                    android:id="@+id/nav_view_company"
+                    android:icon="@drawable/ic_people_black_24dp"
+                    app:actionViewClass="android.widget.TextView"
+                    android:title="Company" />
+
+                <item
+                    android:id="@+id/nav_view_ngo"
+                    android:icon="@drawable/ic_people_black_24dp"
+                    app:actionViewClass="android.widget.TextView"
+                    android:title="NGO" />
+                <item
+                    android:id="@+id/nav_view_lgu"
+                    app:actionViewClass="android.widget.TextView"
+                    android:icon="@drawable/ic_people_black_24dp"
+                    android:title="LGU" />
+
+                <item
+                    android:id="@+id/nav_view_school"
+                    android:icon="@drawable/ic_people_black_24dp"
+                    app:actionViewClass="android.widget.TextView"
+                    android:title="School" />
+            </menu>
+        </item>
+    </group>
+    <!--    <item-->
+    <!--        android:id="@+id/nav_view_feedback"-->
+    <!--        android:icon="@drawable/ic_feedback_black_24dp"-->
+    <!--        android:title="Feedbacks" />-->
+<!--    <group>-->
+<!--        <item android:title="More">-->
+<!--            <menu>-->
+<!--                <item-->
+<!--                    android:id="@+id/nav_map_admin"-->
+<!--                    android:icon="@drawable/location"-->
+<!--                    android:title="Map" />-->
+
+<!--                <item-->
+<!--                    android:id="@+id/nav_setting_admin"-->
+<!--                    android:icon="@drawable/ic_settings_black_24dp"-->
+<!--                    android:title="Settings" />-->
+
+<!--                <item-->
+<!--                    android:id="@+id/nav_website_admin"-->
+<!--                    android:icon="@drawable/ic_computer_black_24dp"-->
+<!--                    android:title="Visit Website" />-->
+
+<!--                <item-->
+<!--                    android:id="@+id/nav_logout_admin"-->
+<!--                    android:icon="@drawable/arrow_left"-->
+<!--                    android:title="Sign Out" />-->
+
+<!--            </menu>-->
+<!--        </item>-->
+<!--    </group>-->
+
+
+
+</menu>

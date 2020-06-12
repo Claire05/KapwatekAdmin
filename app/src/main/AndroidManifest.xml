@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.malabiga.kapwatekadmin">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/kapwaicon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+        <activity android:name=".Map.ViewPeople"></activity>
+        <activity android:name=".Users_Approval" />
+        <activity android:name=".Home_View.Donators.View_Donators" />
+        <activity android:name=".Home_View.ViewFeedbackDescription" />
+        <activity android:name=".Home_View.ViewFeedbacks" />
+        <activity android:name=".SampleOnly" />
+        <activity android:name=".Approval.VOL_Approval.ViewVolunteersAccount" />
+        <activity android:name=".Home_View.NotificationActivity" />
+        <activity android:name=".Approval.EMP_COM_Approval.ViewEmployeesAccount" />
+        <activity android:name=".Home_View.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Home_View.LoginActivity" />
+        <activity android:name=".Home_View.SplashActivity" />
+        <activity android:name=".Approval.Post_Approval.View_Post_Description" />
+        <activity android:name=".Approval.EMP_COM_Approval.View_Profile_Employees" />
+        <activity android:name=".Approval.VOL_Approval.View_Profile_Volunteer" />
+        <activity android:name=".Approval.EMP_LGU_Approval.ViewEmployeesAccount" />
+        <activity android:name=".Approval.EMP_LGU_Approval.View_Profile_Employees" />
+        <activity android:name=".Approval.EMP_NGO_Approval.ViewEmployeesAccount" />
+        <activity android:name=".Approval.EMP_NGO_Approval.View_Profile_Employees" />
+        <activity android:name=".Approval.EMP_SCL_Approval.ViewEmployeesAccount" />
+        <activity android:name=".Home_View.Donators.View_Donators_Information" />
+        <activity android:name=".Approval.EMP_SCL_Approval.View_Profile_Employees" />
+        <activity android:name=".Users_Decline" />
+        <activity android:name=".Home_View.Participate.View_Particapates"/>
+        <activity android:name=".Home_View.Participate.View_Participates_Information"/>
+        <activity android:name=".Home_View.ViewPosts"/>
+        <activity android:name=".Home_View.Categories.Animals"/>
+        <activity android:name=".Home_View.Categories.Wedding"/>
+        <activity android:name=".Home_View.Categories.Sport"/>
+        <activity android:name=".Home_View.Categories.Volunteer"/>
+        <activity android:name=".Home_View.Categories.Medical"/>
+        <activity android:name=".Home_View.Categories.Church"/>
+        <activity android:name=".Home_View.Categories.Music"/>
+        <activity android:name=".Home_View.Categories.Education"/>
+        <activity android:name=".Home_View.Categories.Accidents"/>
+        <activity android:name=".Home_View.SearchView"/>
+        <activity android:name=".Home_View.VOL_Notification_Post_Activity"/>
+        <activity android:name=".Home_View.ViewLivePosts"/>
+        <activity android:name=".SendEmail"/>
+        <activity android:name=".Approval.Post_Approval.SendEmailDecline"/>
+    </application>
+</manifest>

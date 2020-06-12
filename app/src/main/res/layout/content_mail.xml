@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/mailID"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:hint="Email"/>
+    <EditText
+        android:layout_margin="10dp"
+        android:id="@+id/subjectID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:hint="Subject"/>
+
+    <EditText
+        android:layout_margin="10dp"
+        android:id="@+id/messageID"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Message"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reject user?"
+        android:textSize="30dp"
+        android:layout_margin="15dp"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical">
+
+    <CheckBox
+        android:id="@+id/valid1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Invalid Submitted ID"
+        android:fontFamily="@font/montserrat"/>
+
+    <CheckBox
+        android:id="@+id/valid2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Invalid Contact Number"/>
+
+    <CheckBox
+        android:id="@+id/valid3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Image contains nudity"/>
+
+    <CheckBox
+        android:id="@+id/valid4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Image is Taken by another organization"/>
+
+    <CheckBox
+        android:id="@+id/valid5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Organization already registered"/>
+
+    <CheckBox
+        android:id="@+id/valid6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Invalid Contact Person"/>
+
+    <CheckBox
+        android:id="@+id/valid7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Invalid Contact Person Number"/>
+
+    <CheckBox
+        android:id="@+id/valid8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Identical User"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="110dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:fontFamily="@font/montserrat"
+        android:background="@drawable/btn_login_effect_white"/>
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:layout_marginLeft="25dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_login_effect"/>
+    </LinearLayout>
+
+</LinearLayout>

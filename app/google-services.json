@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "161937629032",
+    "firebase_url": "https://kapwatek-98494.firebaseio.com",
+    "project_id": "kapwatek-98494",
+    "storage_bucket": "kapwatek-98494.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161937629032:android:b6b194053274d14dd780dd",
+        "android_client_info": {
+          "package_name": "com.malabiga.kapwatekadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161937629032-tp6q527dhqkr110cp8mpsh37kqk62mip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk8nzmlvqbxI1qfqBuzCJoOhQF0Q-qNxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161937629032-tp6q527dhqkr110cp8mpsh37kqk62mip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161937629032:android:dc8ea98f9728ff2fd780dd",
+        "android_client_info": {
+          "package_name": "com.malabiga.kapwatekmobileapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161937629032-tp6q527dhqkr110cp8mpsh37kqk62mip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk8nzmlvqbxI1qfqBuzCJoOhQF0Q-qNxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161937629032-tp6q527dhqkr110cp8mpsh37kqk62mip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
