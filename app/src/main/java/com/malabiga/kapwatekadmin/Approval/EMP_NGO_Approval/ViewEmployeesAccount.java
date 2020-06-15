@@ -1,6 +1,10 @@
 package com.malabiga.kapwatekadmin.Approval.EMP_NGO_Approval;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.malabiga.kapwatekadmin.Home_View.VOL_Notification_Post_Activity;
 import com.malabiga.kapwatekadmin.Model.EmployeeInformation;
 import com.malabiga.kapwatekadmin.R;
 
@@ -26,7 +31,9 @@ public class ViewEmployeesAccount extends AppCompatActivity {
     //To have references from the other classes
     private ViewEployeesAccountAdapter mAdapter;
     private DatabaseReference databaseReference;
-
+    ImageView notification;
+    private int countNotification = 0;
+    private TextView notification_counter;
     //Firebase
     private DatabaseReference mDatabaseRef, ren, renny;
 
@@ -36,6 +43,44 @@ public class ViewEmployeesAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_employees_account_recyclerview);
+        notification = findViewById(R.id.notification);
+
+        DatabaseReference mDataAccount = FirebaseDatabase.getInstance().getReference("Campaign_ad");
+        mDataAccount.orderByChild("typeStatus").equalTo("Pending").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    notification_counter = findViewById(R.id.notification_counter);
+                    countNotification = (int) dataSnapshot.getChildrenCount();
+                    notification_counter.setText(Integer.toString(countNotification));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+                rootRef.orderByChild("typeStatus").equalTo("Pending").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Intent i = new Intent(ViewEmployeesAccount.this, VOL_Notification_Post_Activity.class);
+                        startActivity(i);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
 
 //Call the Recycler View
         mRecyclerView = findViewById(R.id.recycler_view_employees);
@@ -50,11 +95,11 @@ public class ViewEmployeesAccount extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mPosts = new ArrayList<>();
 
-                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
 //
-                                    EmployeeInformation posts = postSnapshot.getValue(EmployeeInformation.class);
-                                    mPosts.add(posts);
-                                }
+                    EmployeeInformation posts = postSnapshot.getValue(EmployeeInformation.class);
+                    mPosts.add(posts);
+                }
 
 //This is the important part to get the lists of new posts
 

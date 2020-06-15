@@ -99,8 +99,8 @@ public class ViewEployeesAccountAdapter extends RecyclerView.Adapter<ViewEployee
                     i.putExtra("name", mPosts.get(position).getName());
                     i.putExtra("email", mPosts.get(position).getEmail());
                     i.putExtra("address", mPosts.get(position).getAddress());
-                    i.putExtra("contact_Person", mPosts.get(position).getContact_Person());
-                    i.putExtra("contact_Person_Number", mPosts.get(position).getContact_Person_Number());
+                    i.putExtra("contact_Person", mPosts.get(position).getContactNumber());
+                    i.putExtra("contact_Person_Number", mPosts.get(position).getPosition());
                     i.putExtra("typeStatus", mPosts.get(position).getTypeStatus());
                     i.putExtra("validID_1", mPosts.get(position).getValidID_1());
                     i.putExtra("validID_2", mPosts.get(position).getValidID_2());

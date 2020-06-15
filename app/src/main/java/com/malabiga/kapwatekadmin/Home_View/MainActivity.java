@@ -7,6 +7,7 @@ import android.media.Image;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.format.DateFormat;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -53,8 +54,12 @@ import com.malabiga.kapwatekadmin.R;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -97,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         content();
-
+        updateTagEvent();
         firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = firebaseAuth.getCurrentUser();
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -416,6 +421,69 @@ public class MainActivity extends AppCompatActivity {
         eToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void updateTagEvent() {
+
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Campaign_ad");
+        databaseReference.orderByChild("campaign_Title").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String parent = "";
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    parent = postSnapshot.getKey();
+                    String start = postSnapshot.child("start_of_Event").getValue().toString();
+                    String end = postSnapshot.child("endof_Event").getValue().toString();
+                    String a = postSnapshot.child("dateof_Event").getValue().toString();
+                    Date d = new Date();
+                    CharSequence da = DateFormat.format("yyyy-dd-MM", d.getTime());
+
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-dd-MM");
+                    Date c = Calendar.getInstance().getTime();
+                    long currentTime = c.getTime();
+
+                    try {
+                        Date date1 = format.parse(a);
+                        long expirationDate = date1.getTime();
+
+                        CharSequence s = DateFormat.format("H:mma", d.getTime());
+                        SimpleDateFormat formatter = new SimpleDateFormat("h:mma");
+                        Date conver = formatter.parse((String) s);
+                        long conerer = conver.getTime();
+
+                        Date start1 = formatter.parse(start);
+                        Date end1 = formatter.parse(end);
+
+                        long start2 = start1.getTime();
+                        long end2 = end1.getTime();
+                        if (da.equals(a)) {
+                            if (conerer >= start2 && conerer <= end2) {
+                                //Live Event
+                                if (dataSnapshot.exists()) {
+                                    databaseReference.child(parent).child("event_Tag").setValue("Happening Event");
+                                }
+                            } else if (conerer <= start2) {
+                                databaseReference.child(parent).child("event_Tag").setValue("Incoming Event");
+                            } else if (conerer >= end2) {
+                                databaseReference.child(parent).child("event_Tag").setValue("Expired Event");
+                            }
+                        } else if (currentTime > expirationDate) {
+                            databaseReference.child(parent).child("event_Tag").setValue("Expired Event");
+                        } else if (currentTime < expirationDate) {
+                            databaseReference.child(parent).child("event_Tag").setValue("Incoming Event");
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     //back

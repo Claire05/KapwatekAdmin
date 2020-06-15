@@ -57,6 +57,7 @@
                             android:src="@drawable/ic_image_placeholder"
                             app:civ_border_color="@color/kapwatek"
                             app:civ_border_width="1dp" />
+
                         <TextView
                             android:id="@+id/name_emp"
                             android:layout_width="match_parent"
@@ -70,12 +71,12 @@
 
                         <TextView
                             android:id="@+id/email_emp"
-                            android:textAlignment="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat"
                             android:paddingTop="5dp"
                             android:text="sample@gmail.com"
+                            android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="16dp"
                             android:textStyle="normal" />
@@ -109,72 +110,72 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
+                            android:layout_marginLeft="30dp"
                             android:layout_marginRight="10dp"
-                            android:layout_marginLeft="30dp">
+                            android:orientation="vertical">
 
 
                             <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:paddingTop="15dp"
-                            android:text="City"
-                            android:textColor="@color/kapwatek"
-                            android:textSize="18dp" />
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingTop="15dp"
+                                android:text="City"
+                                android:textColor="@color/kapwatek"
+                                android:textSize="18dp" />
 
 
-                        <TextView
-                            android:id="@+id/address_emp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:paddingTop="5dp"
-                            android:text="address"
-                            android:textColor="@color/black"
-                            android:textSize="16dp"
-                            android:textStyle="normal" />
+                            <TextView
+                                android:id="@+id/address_emp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingTop="5dp"
+                                android:text="address"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:paddingTop="15dp"
-                            android:text="Contact Person"
-                            android:textColor="@color/kapwatek"
-                            android:textSize="18dp" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingTop="15dp"
+                                android:text="Contact Number"
+                                android:textColor="@color/kapwatek"
+                                android:textSize="18dp" />
 
 
-                        <TextView
-                            android:id="@+id/contactPerson_emp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:paddingTop="5dp"
-                            android:text="Contact Person"
-                            android:textColor="@color/black"
-                            android:textSize="16dp"
-                            android:textStyle="normal" />
+                            <TextView
+                                android:id="@+id/contactPerson_emp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingTop="5dp"
+                                android:text="Contact Number"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:paddingTop="15dp"
-                            android:text=" Contact Person Number"
-                            android:textColor="@color/kapwatek"
-                            android:textSize="18dp" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingTop="15dp"
+                                android:text=" Position"
+                                android:textColor="@color/kapwatek"
+                                android:textSize="18dp" />
 
-                        <TextView
-                            android:id="@+id/contactPersonNo_emp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:paddingTop="5dp"
-                            android:text="+639222 222 2222"
-                            android:textColor="@color/black"
-                            android:textSize="16dp"
-                            android:textStyle="normal" />
+                            <TextView
+                                android:id="@+id/contactPersonNo_emp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:paddingTop="5dp"
+                                android:text="position"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
                         </LinearLayout>
 
                         <TextView
@@ -205,6 +206,7 @@
                             android:id="@+id/viewValid2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
                             android:text="validtwo"
                             android:textAlignment="center"
                             android:textColor="@color/black" />
@@ -222,7 +224,7 @@
                             android:paddingTop="10dp">
 
                             <LinearLayout
-                                android:layout_width="130dp"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 app:layout_constraintStart_toStartOf="parent"

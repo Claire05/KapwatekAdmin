@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ import com.malabiga.kapwatekadmin.Approval.Post_Approval.ORG_Home_Cardview_Adapt
 import com.malabiga.kapwatekadmin.Approval.VOL_Approval.ViewVolunteersAccount;
 import com.malabiga.kapwatekadmin.Home_View.LoginActivity;
 import com.malabiga.kapwatekadmin.Home_View.MainActivity;
+import com.malabiga.kapwatekadmin.Home_View.VOL_Notification_Post_Activity;
 import com.malabiga.kapwatekadmin.Model.PostNewInformation;
 import com.malabiga.kapwatekadmin.R;
 
@@ -40,7 +42,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class Volunteer extends AppCompatActivity {
-
+    ImageView notification;
+    private int countNotification = 0;
+    private TextView notification_counter;
     int count = 0;
     TextView time;
     private DrawerLayout eDrawerLayout;
@@ -75,6 +79,45 @@ public class Volunteer extends AppCompatActivity {
         setContentView(R.layout.activity_view_posts);
         content();
         time = findViewById(R.id.time);
+
+        notification = findViewById(R.id.notification);
+
+        DatabaseReference mDataAccount = FirebaseDatabase.getInstance().getReference("Campaign_ad");
+        mDataAccount.orderByChild("typeStatus").equalTo("Pending").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    notification_counter = findViewById(R.id.notification_counter);
+                    countNotification = (int) dataSnapshot.getChildrenCount();
+                    notification_counter.setText(Integer.toString(countNotification));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+                rootRef.orderByChild("typeStatus").equalTo("Pending").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Intent i = new Intent(Volunteer.this, VOL_Notification_Post_Activity.class);
+                        startActivity(i);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
 
         rootRef.addValueEventListener(new ValueEventListener() {
             public void onDataChange(DataSnapshot snapshot) {

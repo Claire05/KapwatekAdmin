@@ -34,7 +34,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -257,6 +256,7 @@
                             android:id="@+id/viewValid2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
                             android:text="validtwo"
                             android:textAlignment="center" />
 
@@ -270,58 +270,59 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_height="wrap_content">
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="16dp"
-                                android:orientation="horizontal"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/spinnerChangeStatus"
-                                app:layout_constraintHorizontal_bias="0.099"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.0">
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp">
 
-                                <TextView
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat"
-                                    android:paddingTop="5dp"
-                                    android:paddingBottom="30dp"
-                                    android:text="Status: "
-                                    android:textColor="@color/black"
-                                    android:textSize="16dp" />
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="16dp"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/spinnerChangeStatus"
+                                    app:layout_constraintHorizontal_bias="0.099"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0">
 
-                                <TextView
-                                    android:id="@+id/status_vol"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat"
-                                    android:paddingTop="5dp"
-                                    android:text="status"
-                                    android:textColor="@color/black"
-                                    android:textSize="16dp" />
-                            </LinearLayout>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="30dp"
+                                        android:text="Status: "
+                                        android:textColor="@color/black"
+                                        android:textSize="16dp" />
 
-                            <Spinner
-                                android:id="@+id/spinnerChangeStatus"
-                                android:layout_width="180dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="16dp"
-                                android:background="@android:drawable/btn_dropdown"
-                                android:paddingBottom="20dp"
-                                android:spinnerMode="dropdown"
-                                android:textColor="@color/black"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                    <TextView
+                                        android:id="@+id/status_vol"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/montserrat"
+                                        android:paddingTop="5dp"
+                                        android:text="status"
+                                        android:textColor="@color/black"
+                                        android:textSize="16dp" />
+                                </LinearLayout>
+
+                                <Spinner
+                                    android:id="@+id/spinnerChangeStatus"
+                                    android:layout_width="180dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="16dp"
+                                    android:background="@android:drawable/btn_dropdown"
+                                    android:paddingBottom="20dp"
+                                    android:spinnerMode="dropdown"
+                                    android:textColor="@color/black"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
                         </LinearLayout>
 
                         <LinearLayout

@@ -6,8 +6,8 @@ public class EmployeeInformation {
     public String password;
     public String typeStatus;
     public String name;
-    public String contact_Person;
-    public String contact_Person_Number;
+    public String contactNumber;
+    public String position;
     public String validID_1;
     public String address;
     public String registered_As;
@@ -19,42 +19,6 @@ public class EmployeeInformation {
     public EmployeeInformation() {
     }
 
-    public EmployeeInformation(String valone, String valtwo) {
-        this.valone = valone;
-        this.valtwo = valtwo;
-    }
-
-    public String getValone() {
-        return valone;
-    }
-
-    public void setValone(String valone) {
-        this.valone = valone;
-    }
-
-    public String getValtwo() {
-        return valtwo;
-    }
-
-    public void setValtwo(String valtwo) {
-        this.valtwo = valtwo;
-    }
-
-    public EmployeeInformation(String user_Picture) {
-        this.user_Picture = user_Picture;
-    }
-
-    public EmployeeInformation(String email, String password, String typeStatus, String name, String contact_Person, String contact_Person_Number, String validID_1, String address, String registered_As) {
-        this.email = email;
-        this.password = password;
-        this.typeStatus = typeStatus;
-        this.name = name;
-        this.contact_Person = contact_Person;
-        this.contact_Person_Number = contact_Person_Number;
-        this.validID_1 = validID_1;
-        this.address = address;
-        this.registered_As = registered_As;
-    }
 
     public String getEmail() {
         return email;
@@ -88,20 +52,20 @@ public class EmployeeInformation {
         this.name = name;
     }
 
-    public String getContact_Person() {
-        return contact_Person;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setContact_Person(String contact_Person) {
-        this.contact_Person = contact_Person;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
-    public String getContact_Person_Number() {
-        return contact_Person_Number;
+    public String getPosition() {
+        return position;
     }
 
-    public void setContact_Person_Number(String contact_Person_Number) {
-        this.contact_Person_Number = contact_Person_Number;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getValidID_1() {
@@ -111,7 +75,6 @@ public class EmployeeInformation {
     public void setValidID_1(String validID_1) {
         this.validID_1 = validID_1;
     }
-
 
     public String getAddress() {
         return address;
@@ -143,5 +106,21 @@ public class EmployeeInformation {
 
     public void setValidID_2(String validID_2) {
         this.validID_2 = validID_2;
+    }
+
+    public String getValone() {
+        return valone;
+    }
+
+    public void setValone(String valone) {
+        this.valone = valone;
+    }
+
+    public String getValtwo() {
+        return valtwo;
+    }
+
+    public void setValtwo(String valtwo) {
+        this.valtwo = valtwo;
     }
 }

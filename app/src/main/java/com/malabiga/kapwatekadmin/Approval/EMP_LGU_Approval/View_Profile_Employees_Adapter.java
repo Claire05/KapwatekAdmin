@@ -46,8 +46,8 @@ public class View_Profile_Employees_Adapter extends RecyclerView.Adapter<View_Pr
         holder.name.setText(postCurrent.getName());
         holder.email.setText(postCurrent.getEmail());
         holder.address.setText(postCurrent.getAddress());
-        holder.contactPerson.setText(postCurrent.getContact_Person());
-        holder.contactPhone.setText(postCurrent.getContact_Person_Number());
+        holder.contactPerson.setText(postCurrent.getContactNumber());
+        holder.contactPhone.setText(postCurrent.getPosition());
         holder.status.setText(postCurrent.getTypeStatus());
 //We Used Picasso to also call the image URL and Push it in the view post, WE USED CENTER CROP TO GET THE IMAGE FULLY
         Picasso.get().load(postCurrent.getUser_Picture()).fit().centerCrop().into(holder.imageProfile);
