@@ -1,53 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/heading_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Campaign Search"
-        android:textColor="#555555"
-        android:textSize="24sp" />
-
     <EditText
-        android:id="@+id/search_field"
+        android:id="@+id/inputSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/heading_label"
-        android:layout_below="@+id/heading_label"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/search_layout"
-        android:ems="10"
-        android:fontFamily="@font/montserrat"
-        android:hint="Search here"
-        android:inputType="textPersonName"
-        android:paddingBottom="10dp"
+        android:hint="Search data here ..."
+        android:layout_margin="20dp"
+        android:background="@drawable/input_search"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:textColor="#999999"
-        android:textSize="16sp" />
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:drawableRight="@drawable/ic_search_black_24dp"
+        android:paddingRight="10dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/result_list"
+        android:layout_below="@+id/inputSearch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/search_field"
-        android:layout_marginTop="20dp"></androidx.recyclerview.widget.RecyclerView>
+        android:id="@+id/recylerView" />
 
-    </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -59,10 +59,10 @@
         <activity android:name=".Home_View.Categories.Music"/>
         <activity android:name=".Home_View.Categories.Education"/>
         <activity android:name=".Home_View.Categories.Accidents"/>
-        <activity android:name=".Home_View.SearchView"/>
         <activity android:name=".Home_View.VOL_Notification_Post_Activity"/>
         <activity android:name=".Home_View.ViewLivePosts"/>
         <activity android:name=".SendEmail"/>
         <activity android:name=".Approval.Post_Approval.SendEmailDecline"/>
+        <activity android:name=".Home_View.SearchActivity"/>
     </application>
 </manifest>

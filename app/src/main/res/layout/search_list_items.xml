@@ -27,13 +27,14 @@
         <TextView
             android:id="@+id/user_name"
             android:layout_width="match_parent"
+            android:maxLength="50"
             android:layout_height="wrap_content"
             android:text="Full name goes here"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/full_name"
+            android:id="@+id/author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="User name goes here" />

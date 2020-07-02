@@ -59,7 +59,7 @@ public class ViewPosts extends AppCompatActivity {
     private DatabaseReference mDatabaseRef,mDataAccount;
     private List<PostNewInformation> mPosts;
 
-    ImageView notification;
+    ImageView notification, search;
     TextView fullname, vol_email;
     ImageView imgProfile = null;
     String dp1;
@@ -76,6 +76,16 @@ public class ViewPosts extends AppCompatActivity {
         setContentView(R.layout.activity_view_posts);
         content();
         time = findViewById(R.id.time);
+
+
+        search = findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewPosts.this, SearchActivity.class);
+                startActivity(i);
+            }
+        });
 
         notification = findViewById(R.id.notification);
 

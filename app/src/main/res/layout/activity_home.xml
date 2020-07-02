@@ -64,6 +64,7 @@
                                 android:id="@+id/viewLocations"
                                 android:layout_width="140dp"
                                 android:layout_height="27dp"
+                                android:visibility="gone"
                                 android:layout_marginRight="10dp"
                                 android:layout_marginBottom="50dp"
                                 android:background="@drawable/btn_login_effect"

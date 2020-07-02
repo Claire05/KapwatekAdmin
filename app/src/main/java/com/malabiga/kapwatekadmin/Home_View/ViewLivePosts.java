@@ -64,7 +64,7 @@ public class ViewLivePosts extends AppCompatActivity {
     private DatabaseReference mDatabaseRef,mDataAccount;
     private List<PostNewInformation> mPosts;
 
-    ImageView notification;
+    ImageView notification, search;
     TextView fullname, vol_email;
     ImageView imgProfile = null;
     String dp1;
@@ -81,6 +81,15 @@ public class ViewLivePosts extends AppCompatActivity {
         setContentView(R.layout.activity_view_posts);
         content();
         time = findViewById(R.id.time);
+
+        search = findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewLivePosts.this, SearchActivity.class);
+                startActivity(i);
+            }
+        });
 
         notification = findViewById(R.id.notification);
 
@@ -133,7 +142,7 @@ public class ViewLivePosts extends AppCompatActivity {
                         int id = menuItem.getItemId();
                         switch (id) {
                             case R.id.nav_home_admin:
-                                Intent i = new Intent(ViewLivePosts.this, ViewVolunteersAccount.class);
+                                Intent i = new Intent(ViewLivePosts.this, MainActivity.class);
                                 startActivity(i);
                                 break;
                             case R.id.nav_view_vol:
