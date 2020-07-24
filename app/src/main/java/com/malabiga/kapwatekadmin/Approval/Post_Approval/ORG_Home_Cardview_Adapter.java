@@ -165,6 +165,9 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
             i.putExtra("Date_Posted",mPosts.get(position).getDate_Posted());
             i.putExtra("typeStatus",mPosts.get(position).getTypeStatus());
             i.putExtra("date_Posted",mPosts.get(position).getDate_Posted());
+            i.putExtra("address",mPosts.get(position).getAddress());
+            i.putExtra("time", mPosts.get(position).getTime());
+            i.putExtra("uid", mPosts.get(position).getUid());
             mContext.startActivity(i);
          }
       });

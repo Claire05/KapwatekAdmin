@@ -462,7 +462,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="176dp"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/sport" />
+                                android:src="@drawable/sport1" />
 
                             <TextView
                                 android:layout_width="match_parent"

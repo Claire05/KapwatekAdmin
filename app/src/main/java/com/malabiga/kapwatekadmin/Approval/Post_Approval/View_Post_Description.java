@@ -20,16 +20,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.malabiga.kapwatekadmin.Approval.EMP_COM_Approval.View_Profile_Employees;
 import com.malabiga.kapwatekadmin.Home_View.MainActivity;
 import com.malabiga.kapwatekadmin.R;
-import com.malabiga.kapwatekadmin.Users_Approval;
-import com.malabiga.kapwatekadmin.Users_Decline;
 import com.squareup.picasso.Picasso;
 
 public class View_Post_Description extends AppCompatActivity {
     DatabaseReference reference;
-    TextView title, description, goal, author, date1, status, time;
+    TextView title, description, goal, author, date1, status, time, address;
     ImageView picture;
     Button btnApprove;
 
@@ -45,6 +42,7 @@ public class View_Post_Description extends AppCompatActivity {
         date1 = findViewById(R.id.descriptionDate);
         status = findViewById(R.id.status_post);
         time = findViewById(R.id.time);
+        address = findViewById(R.id.address);
 
         final String postImage = getIntent().getExtras().getString("Announcement_Picture");
         Picasso.get().load(postImage).resize(200, 100).into(picture);
@@ -62,6 +60,9 @@ public class View_Post_Description extends AppCompatActivity {
         status.setText(postStatus);
         String postTime = getIntent().getExtras().getString("time");
         time.setText(postTime);
+        String postAddress = getIntent().getExtras().getString("address");
+        address.setText(postAddress);
+
 
         Spinner setPermission = findViewById(R.id.spinnerChangeStatus);
         String[] spinnerPermission = new String[]{"Decline", "Approve"};
@@ -112,11 +113,31 @@ public class View_Post_Description extends AppCompatActivity {
                             }
                             if (dropdown.getSelectedItem().toString() == "Decline") {
                                 reference.child(parent).child("typeStatus").setValue("Declined");
-                                Intent ii = new Intent(View_Post_Description.this, Users_Decline.class);
-                                Toast.makeText(View_Post_Description.this, "Campaign Post Declined", Toast.LENGTH_SHORT).show();
-                                ii.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(ii);
-                                finish();
+                                final Intent ii = new Intent(View_Post_Description.this, SendEmailCampaign.class);
+                                String uid = getIntent().getExtras().getString("uid");
+
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                                            String email = dataSnapshot.child("email").getValue().toString();
+
+                                            Toast.makeText(View_Post_Description.this, "Campaign Post Declined", Toast.LENGTH_SHORT).show();
+                                            ii.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                            ii.putExtra("email",email);
+                                            startActivity(ii);
+                                            finish();
+//                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

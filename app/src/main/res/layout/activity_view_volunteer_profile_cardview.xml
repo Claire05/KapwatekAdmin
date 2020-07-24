@@ -244,6 +244,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="validone"
+                            android:visibility="gone"
                             android:textAlignment="center" />
 
                         <ImageView
@@ -257,11 +258,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
+                            android:visibility="gone"
                             android:text="validtwo"
                             android:textAlignment="center" />
 
                         <ImageView
                             android:id="@+id/volValidID2"
+                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="400dp"
                             android:src="@drawable/ic_image_placeholder" />

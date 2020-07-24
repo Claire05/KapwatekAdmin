@@ -15,6 +15,8 @@ public class EmployeeInformation {
     public String validID_2;
     public String valone;
     public String valtwo;
+    public String birthday;
+    public String orgName;
 
     public EmployeeInformation() {
     }
@@ -122,5 +124,21 @@ public class EmployeeInformation {
 
     public void setValtwo(String valtwo) {
         this.valtwo = valtwo;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
     }
 }

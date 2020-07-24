@@ -69,11 +69,11 @@ public class VOL_Notification_Post_Activity extends AppCompatActivity {
         });
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finish();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            finish();
+//            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 }

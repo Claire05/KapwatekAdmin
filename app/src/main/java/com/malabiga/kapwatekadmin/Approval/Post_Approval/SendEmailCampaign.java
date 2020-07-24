@@ -15,7 +15,7 @@ import com.malabiga.kapwatekadmin.Home_View.MainActivity;
 import com.malabiga.kapwatekadmin.JavaMailAPI;
 import com.malabiga.kapwatekadmin.R;
 
-public class SendEmailDecline extends AppCompatActivity {
+public class SendEmailCampaign extends AppCompatActivity {
 
     public EditText mEmail;
     public EditText mSubject;
@@ -28,7 +28,7 @@ public class SendEmailDecline extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_send_email_post_decline);
+        setContentView(R.layout.activity_send_email_campaign);
 
         mEmail = (EditText) findViewById(R.id.mailID);
         mMessage = (EditText) findViewById(R.id.messageID);
@@ -48,7 +48,7 @@ public class SendEmailDecline extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendMail();
-                Intent i = new Intent(SendEmailDecline.this, MainActivity.class);
+                Intent i = new Intent(SendEmailCampaign.this, MainActivity.class);
                 startActivity(i);
             }
         });
@@ -56,7 +56,7 @@ public class SendEmailDecline extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SendEmailDecline.this, MainActivity.class);
+                Intent i = new Intent(SendEmailCampaign.this, MainActivity.class);
                 startActivity(i);
             }
         });
@@ -115,7 +115,7 @@ public class SendEmailDecline extends AppCompatActivity {
 
     String mail = email;
         mEmail.setText(email);
-    String message = "This email is to tell you that your account has been rejected by our Admin due to the following reason/s:"+"\n"+valid_1+valid_2+valid_3+valid_4+valid_5+valid_6+valid_7+valid_8;
+    String message = "This email is to tell you that your campaign has been rejected by our Admin due to the following reason/s:"+"\n"+valid_1+valid_2+valid_3+valid_4+valid_5+valid_6+valid_7+valid_8;
 
     //        String message = mMessage.getText().toString();
     String subject = "Kapwatek";

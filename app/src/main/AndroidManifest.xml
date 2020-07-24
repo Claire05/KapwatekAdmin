@@ -37,15 +37,12 @@
         <activity android:name=".Home_View.LoginActivity" />
         <activity android:name=".Home_View.SplashActivity" />
         <activity android:name=".Approval.Post_Approval.View_Post_Description" />
-        <activity android:name=".Approval.EMP_COM_Approval.View_Profile_Employees" />
         <activity android:name=".Approval.VOL_Approval.View_Profile_Volunteer" />
         <activity android:name=".Approval.EMP_LGU_Approval.ViewEmployeesAccount" />
-        <activity android:name=".Approval.EMP_LGU_Approval.View_Profile_Employees" />
         <activity android:name=".Approval.EMP_NGO_Approval.ViewEmployeesAccount" />
         <activity android:name=".Approval.EMP_NGO_Approval.View_Profile_Employees" />
         <activity android:name=".Approval.EMP_SCL_Approval.ViewEmployeesAccount" />
         <activity android:name=".Home_View.Donators.View_Donators_Information" />
-        <activity android:name=".Approval.EMP_SCL_Approval.View_Profile_Employees" />
         <activity android:name=".Users_Decline" />
         <activity android:name=".Home_View.Participate.View_Particapates"/>
         <activity android:name=".Home_View.Participate.View_Participates_Information"/>
@@ -64,5 +61,6 @@
         <activity android:name=".SendEmail"/>
         <activity android:name=".Approval.Post_Approval.SendEmailDecline"/>
         <activity android:name=".Home_View.SearchActivity"/>
+        <activity android:name=".Approval.Post_Approval.SendEmailCampaign"/>
     </application>
 </manifest>

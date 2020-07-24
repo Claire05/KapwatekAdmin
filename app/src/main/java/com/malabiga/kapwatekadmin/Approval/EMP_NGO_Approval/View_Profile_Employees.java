@@ -74,6 +74,8 @@ public class View_Profile_Employees extends AppCompatActivity {
                 && getIntent().hasExtra("contact_Person")
                 && getIntent().hasExtra("valone")
                 && getIntent().hasExtra("valtwo")
+                && getIntent().hasExtra("birthday")
+                && getIntent().hasExtra("orgName")
                 || getIntent().hasExtra("contact_Person_Number")){
             //Log.d(TAG, "getIncomingIntent: found intent extras.");
 
@@ -81,6 +83,8 @@ public class View_Profile_Employees extends AppCompatActivity {
             String email= getIntent().getStringExtra("email");
             String name = getIntent().getStringExtra("name");
             String address = getIntent().getStringExtra("address");
+            String birthday = getIntent().getStringExtra("birthday");
+            String orgName = getIntent().getStringExtra("orgName");
             String contactPerson = getIntent().getStringExtra("contact_Person");
             String contactPersonNumber= getIntent().getStringExtra("contact_Person_Number");
             String empProfilePic= getIntent().getStringExtra("user_Picture");
@@ -95,7 +99,7 @@ public class View_Profile_Employees extends AppCompatActivity {
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerPermission);
             setPermission.setAdapter(adapter);
 
-            setImage( typeStatus,  email, name, address, contactPerson, contactPersonNumber, empProfilePic, empValidID, empValidID2, validone, validtwo);
+            setImage( typeStatus,  email, name, address, contactPerson, contactPersonNumber, empProfilePic, empValidID, empValidID2, validone, validtwo, birthday, orgName);
             onClickBtnApprove(empProfilePic);
         }
     }
@@ -103,7 +107,7 @@ public class View_Profile_Employees extends AppCompatActivity {
 
     private void setImage(String typeStatus, String email,String name, String address, String contactPerson,
                           String contactPersonNumber, String empProfilePic,
-                          String empValidID, String empValidID2,String validone , String validtwo){
+                          String empValidID, String empValidID2,String validone , String validtwo, String birthday, String orgName){
         //Log.d(TAG, "setImage: setting te image and name to widgets.");
 
         ImageView images = findViewById(R.id.viewProfile_emp);
@@ -132,12 +136,13 @@ public class View_Profile_Employees extends AppCompatActivity {
         TextView displayStatus = findViewById(R.id.status_emp);
         TextView displayEmail = findViewById(R.id.email_emp);
         TextView displayName = findViewById(R.id.name_emp);
+        TextView displayBirthday = findViewById(R.id.orgBday);
+        TextView displayOrgName = findViewById(R.id.orgName);
         TextView displaycontactPerson = findViewById(R.id.contactPerson_emp);
         TextView displaycontactPersonNumber = findViewById(R.id.contactPersonNo_emp);
         TextView displayAddress = findViewById(R.id.address_emp);
         TextView displayvalidone = findViewById(R.id.viewValid1);
         TextView displayvalidtwo = findViewById(R.id.viewValid2);
-//         TextView displaypwdpic = findViewById(R.id.profile_pic_pwd);
 //
         displayStatus.setText(typeStatus);
         displayEmail.setText(email);
@@ -147,6 +152,9 @@ public class View_Profile_Employees extends AppCompatActivity {
         displayAddress.setText(address);
         displayvalidone.setText(validone);
         displayvalidtwo.setText(validtwo);
+        displayBirthday.setText(birthday);
+        displayOrgName.setText(orgName);
+
          }
     public void onClickBtnApprove ( final String user_Profile){
         btnApprove = findViewById(R.id.btnApprove);

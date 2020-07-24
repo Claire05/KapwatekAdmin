@@ -29,7 +29,7 @@ import com.malabiga.kapwatekadmin.Users_Decline;
 public class View_Profile_Volunteer extends AppCompatActivity {
 
     DatabaseReference rootref, childref;
-    TextView fname_vol, mname_vol, lname_vol, email_vol, address_vol, phone_vol, status_vol, profession_vol;
+    TextView fname_vol, mname_vol, lname_vol, email_vol, address_vol, phone_vol, status_vol, profession_vol, bday_vol, gender_vol;
     ImageView viewProfile_vol;
     Button btnApprove;
     DatabaseReference reference,mDatabase;
@@ -40,6 +40,8 @@ public class View_Profile_Volunteer extends AppCompatActivity {
         setContentView(R.layout.activity_view_volunteer_profile_cardview);
         getVolunteerContent();
 
+        gender_vol = findViewById(R.id.gender_vol);
+        bday_vol = findViewById(R.id.bday_vol);
         fname_vol = findViewById(R.id.fname_vol);
         mname_vol = findViewById(R.id.mname_vol);
         lname_vol = findViewById(R.id.lname_vol);
@@ -64,8 +66,10 @@ public class View_Profile_Volunteer extends AppCompatActivity {
                 && getIntent().hasExtra("last_Name")
                 && getIntent().hasExtra("contact")
                 && getIntent().hasExtra("profession")
+                && getIntent().hasExtra("gender")
                 && getIntent().hasExtra("address")
                 && getIntent().hasExtra("city")
+                && getIntent().hasExtra("birthday")
                 && getIntent().hasExtra("validID_1")
                 && getIntent().hasExtra("validID_2")
                 && getIntent().hasExtra("validone")
@@ -77,6 +81,8 @@ public class View_Profile_Volunteer extends AppCompatActivity {
             String middlename = getIntent().getStringExtra("middle_Name");
             String lastname = getIntent().getStringExtra("last_Name");
             String address = getIntent().getStringExtra("address");
+            String gender = getIntent().getStringExtra("gender");
+            String birthday = getIntent().getStringExtra("birthday");
             String city = getIntent().getStringExtra("city");
             String contact = getIntent().getStringExtra("contact");
             String profession = getIntent().getStringExtra("profession");
@@ -92,13 +98,13 @@ public class View_Profile_Volunteer extends AppCompatActivity {
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerPermission);
             setPermission.setAdapter(adapter);
 
-            setImage(typeStatus, email, firstname, middlename, lastname, address, city, contact,profession, volProfilePic, empValidID,empValidID2, validIDone, validIDtwo);
+            setImage(typeStatus, email, firstname, middlename, lastname, address, city, contact,profession, volProfilePic, empValidID,empValidID2, validIDone, validIDtwo, birthday, gender);
             onClickBtnApprove(volProfilePic);
         }
     }
 
     private void setImage(String typeStatus, String email, String firstname, String middlename, String lastname, String address, String city, String
-            contact, String profession, String empProfilePic, String volValidID, String volValidID2, String validIDone, String validIDtwo) {
+            contact, String profession, String empProfilePic, String volValidID, String volValidID2, String validIDone, String validIDtwo, String birthday, String gender) {
         //Log.d(TAG, "setImage: setting te image and name to widgets.");
 
         ImageView images = findViewById(R.id.viewProfile_vol);
@@ -119,6 +125,8 @@ public class View_Profile_Volunteer extends AppCompatActivity {
                 .load(volValidID2)
                 .into(images2);
 
+        TextView displaygender = findViewById(R.id.gender_vol);
+        TextView displaybirthday = findViewById(R.id.bday_vol);
         TextView displayStatus = findViewById(R.id.status_vol);
         TextView displayEmail = findViewById(R.id.email_vol);
         TextView displayFirstName = findViewById(R.id.fname_vol);
@@ -143,6 +151,8 @@ public class View_Profile_Volunteer extends AppCompatActivity {
         displayCity.setText(city);
         displayvalidone.setText(validIDone);
         displayvalidtwo.setText(validIDtwo);
+        displaybirthday.setText(birthday);
+        displaygender.setText(gender);
     }
 
     public void onClickBtnApprove(final String user_Profile) {

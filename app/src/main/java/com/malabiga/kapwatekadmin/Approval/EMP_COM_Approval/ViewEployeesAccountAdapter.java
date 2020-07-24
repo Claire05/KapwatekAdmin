@@ -104,6 +104,8 @@ public class ViewEployeesAccountAdapter extends RecyclerView.Adapter<ViewEployee
                     i.putExtra("user_Picture", mPosts.get(position).getUser_Picture());
                     i.putExtra("valone",mPosts.get(position).getValone());
                     i.putExtra("valtwo",mPosts.get(position).getValtwo());
+                    i.putExtra("birthday",mPosts.get(position).getBirthday());
+                    i.putExtra("orgName",mPosts.get(position).getOrgName());
                     mContext.startActivity(i);
                 }
             });

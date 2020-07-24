@@ -82,15 +82,17 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(mContext, View_Post_Description.class);
-                    i.putExtra("Announcement_Picture",mPosts.get(position).getAnnouncement_Picture());
+                    i.putExtra("Announcement_Picture", mPosts.get(position).getAnnouncement_Picture());
+                    i.putExtra("Donation_Goal",mPosts.get(position).getDonations_Goal());
                     i.putExtra("Campaign_Title",mPosts.get(position).getCampaign_Title());
-                    i.putExtra("Author",mPosts.get(position).getAuthor());
                     i.putExtra("Story_Description",mPosts.get(position).getStory_Description());
-                    i.putExtra("Donation_Goal", mPosts.get(position).getDonations_Goal());
+                    i.putExtra("Author",mPosts.get(position).getAuthor());
                     i.putExtra("Date_Posted",mPosts.get(position).getDate_Posted());
                     i.putExtra("typeStatus",mPosts.get(position).getTypeStatus());
+                    i.putExtra("date_Posted",mPosts.get(position).getDate_Posted());
+                    i.putExtra("address",mPosts.get(position).getAddress());
+                    i.putExtra("time", mPosts.get(position).getTime());
                     mContext.startActivity(i);
-
                 }
             });
         }

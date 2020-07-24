@@ -100,6 +100,8 @@ public class ViewVolunteersAccountAdapter extends RecyclerView.Adapter<ViewVolun
                     i.putExtra("validID_2", mPosts.get(position).getValidID_2());
                     i.putExtra("profession", mPosts.get(position).getProfession());
                     i.putExtra("city",mPosts.get(position).getCity());
+                    i.putExtra("birthday",mPosts.get(position).getBirthday());
+                    i.putExtra("gender",mPosts.get(position).getGender());
                     mContext.startActivity(i);
                 }
             });

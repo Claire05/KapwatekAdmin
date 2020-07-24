@@ -114,7 +114,7 @@ public class SendEmail extends AppCompatActivity {
 
     String mail = email;
         mEmail.setText(email);
-    String message = "This email is to tell you that your account have been rejected by our Admin due to the following reason/s:"+"\n"+valid_1+valid_2+valid_3+valid_4+valid_5+valid_6+valid_7+valid_8;
+    String message = "This email is to tell you that your account has been rejected by our Admin due to the following reason/s:"+"\n"+valid_1+valid_2+valid_3+valid_4+valid_5+valid_6+valid_7+valid_8;
 
     //        String message = mMessage.getText().toString();
     String subject = "Kapwatek";

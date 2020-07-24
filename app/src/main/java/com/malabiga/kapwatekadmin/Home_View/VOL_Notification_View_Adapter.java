@@ -24,7 +24,7 @@ public class VOL_Notification_View_Adapter extends RecyclerView.Adapter<VOL_Noti
     private Context mContext;
     private List<PostNewInformation> mPosts;
 
-    public VOL_Notification_View_Adapter(Context context, List<PostNewInformation> posts){
+    public VOL_Notification_View_Adapter(Context context, List<PostNewInformation> posts) {
         mContext = context;
         mPosts = posts;
     }
@@ -53,15 +53,16 @@ public class VOL_Notification_View_Adapter extends RecyclerView.Adapter<VOL_Noti
 //We Used Picasso to also call the image URL and Push it in the view post, WE USED CENTER CROP TO GET THE IMAGE FULLY
         Picasso.get().load(postCurrent.getAnnouncement_Picture()).fit().centerCrop().into(holder.imageView);
     }
+
     //This shows the items as many as we want that was added from the admin post
     @Override
     public int getItemCount() {
         return mPosts.size();
     }
 
-    public class postViewHolder extends RecyclerView.ViewHolder{
+    public class postViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewCompany, textViewfullname,textDate;
+        public TextView textViewCompany, textViewfullname, textDate;
         public ImageView imageView;
         public LinearLayout container;
 
@@ -74,7 +75,6 @@ public class VOL_Notification_View_Adapter extends RecyclerView.Adapter<VOL_Noti
             textDate = itemView.findViewById(R.id.date);
             imageView = itemView.findViewById(R.id.imageView);
             container = itemView.findViewById(R.id.container);
-
         }
 
         public void onClick(final int position) {
@@ -83,19 +83,19 @@ public class VOL_Notification_View_Adapter extends RecyclerView.Adapter<VOL_Noti
                 public void onClick(View v) {
                     Intent i = new Intent(mContext, View_Post_Description.class);
                     i.putExtra("Announcement_Picture", mPosts.get(position).getAnnouncement_Picture());
-                    i.putExtra("Donation_Goal",mPosts.get(position).getDonations_Goal());
-                    i.putExtra("Campaign_Title",mPosts.get(position).getCampaign_Title());
-                    i.putExtra("Story_Description",mPosts.get(position).getStory_Description());
-                    i.putExtra("Author",mPosts.get(position).getAuthor());
-                    i.putExtra("Date_Posted",mPosts.get(position).getDate_Posted());
-                    i.putExtra("time",mPosts.get(position).getTime());
-                    i.putExtra("geofenceLayer",mPosts.get(position).getGeofenceLayer());
-//            i.putExtra("Profession",mPosts.get(position).getProfession());
-//            long timestamp = mPosts.get(position).getTimeStamp();
-//            i.putExtra("postDate",timestamp);
+                    i.putExtra("Donation_Goal", mPosts.get(position).getDonations_Goal());
+                    i.putExtra("Campaign_Title", mPosts.get(position).getCampaign_Title());
+                    i.putExtra("Story_Description", mPosts.get(position).getStory_Description());
+                    i.putExtra("Author", mPosts.get(position).getAuthor());
+                    i.putExtra("Date_Posted", mPosts.get(position).getDate_Posted());
+                    i.putExtra("typeStatus", mPosts.get(position).getTypeStatus());
+                    i.putExtra("date_Posted", mPosts.get(position).getDate_Posted());
+                    i.putExtra("address", mPosts.get(position).getAddress());
+                    i.putExtra("time", mPosts.get(position).getTime());
+                    i.putExtra("uid", mPosts.get(position).getUid());
                     mContext.startActivity(i);
                 }
             });
+        }
     }
-}
 }
