@@ -169,7 +169,7 @@
                                 android:fontFamily="@font/montserrat"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
-                                android:text="Accidents and Emergencies"
+                                android:text="Advocavy Event"
                                 android:textColor="@color/black"
                                 android:textSize="20dp" />
 
@@ -217,7 +217,7 @@
                                 android:fontFamily="@font/montserrat"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
-                                android:text="Animals and Pets"
+                                android:text="Campaign Event"
                                 android:textColor="@color/black"
                                 android:textSize="20dp" />
 
@@ -268,7 +268,7 @@
                                 android:fontFamily="@font/montserrat"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
-                                android:text="Music, Arts and Film"
+                                android:text="Charity Event"
                                 android:textColor="@color/black"
                                 android:textSize="20dp" />
 
@@ -318,7 +318,7 @@
                                 android:fontFamily="@font/montserrat"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
-                                android:text="education"
+                                android:text="For a Cause Event"
                                 android:textColor="@color/black"
                                 android:textSize="20dp" />
 
@@ -360,7 +360,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="176dp"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/medical" />
+                                android:src="@drawable/sport" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -369,7 +369,7 @@
                                 android:fontFamily="@font/montserrat"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
-                                android:text="Medical"
+                                android:text="Marathon Event"
                                 android:textColor="@color/black"
                                 android:textSize="20dp" />
 
@@ -536,7 +536,7 @@
                                 android:textSize="15dp" />
 
                             <TextView
-                                android:id="@+id/wedding"
+                                android:id="@+id/volunteer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
@@ -585,7 +585,7 @@
                                 android:textSize="15dp" />
 
                             <TextView
-                                android:id="@+id/volunteer"
+                                android:id="@+id/wedding"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"

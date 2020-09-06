@@ -54,73 +54,92 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
 //we used posts to get our reference
       PostNewInformation postCurrent = mPosts.get(position);
 //This will call all the contents that we added from the admin posts, the getTitle came from the Posts
-      holder.textViewGoal.setText(postCurrent.getDonations_Goal());
+//      holder.textViewGoal.setText("Goal: ₱"+postCurrent.getDonations_Goal()+ ".00");
       holder.textViewTitle.setText(postCurrent.getCampaign_Title());
       holder.textViewSummary.setText(postCurrent.getStory_Description());
       holder.textViewStatus.setText(postCurrent.getTypeStatus());
       holder.btnViewPost.setVisibility(View.VISIBLE);
       holder.onClick(position);
-      holder.btn_viewDonators.setVisibility(View.VISIBLE);
+//      holder.btn_viewDonators.setVisibility(View.VISIBLE);
       holder.onClick2(position);
-      holder.btn_participate.setVisibility(View.VISIBLE);
+//      holder.btn_participate.setVisibility(View.VISIBLE);
       holder.onClick3(position);
 
+      String title = postCurrent.getCampaign_Title();
+      if (title.length()>=50){
+         String titleLength = title.substring(0,50);
+         holder.textViewTitle.setText(titleLength+"...");
+      }else{
+         holder.textViewTitle.setText(postCurrent.getCampaign_Title());
+      }
 
-
-      String a = postCurrent.getDateof_Event();
-      String start = postCurrent.getStart_of_Event();
-      String end = postCurrent.getEndof_Event();
-
+      String description = postCurrent.getStory_Description();
+      if (description.length()>=180){
+         String descrptionLength = description.substring(0,180);
+         holder.textViewSummary.setText(descrptionLength+"...");
+      }else{
+         holder.textViewSummary.setText(postCurrent.getStory_Description());
+      }
 
 //We Used Picasso to also call the image URL and Push it in the view post, WE USED CENTER CROP TO GET THE IMAGE FULLY
       Picasso.get().load(postCurrent.getAnnouncement_Picture()).resize(200,100).into(holder.imageView);
 
-
-      Date d = new Date();
-      CharSequence da = DateFormat.format("yyyy-dd-MM", d.getTime());
-
-      SimpleDateFormat format = new SimpleDateFormat("yyyy-dd-MM");
-      Date c = Calendar.getInstance().getTime();
-      long currentTime = c.getTime();
-
-      try {
-         Date date1 = format.parse(a);
-         long expirationDate = date1.getTime();
-
-         CharSequence s = DateFormat.format("H:mma", d.getTime());
-         SimpleDateFormat formatter = new SimpleDateFormat("h:mma");
-         Date conver = formatter.parse((String) s);
-         long conerer = conver.getTime();
-
-         Date start1 = formatter.parse(start);
-         Date end1 = formatter.parse(end);
-
-         long start2 = start1.getTime();
-         long end2 = end1.getTime();
-         if(da.equals(a)){
-            if (conerer >= start2 && conerer <= end2) {
-               //Live Event
-               holder.eventStatus.setText("Live");
-               holder.bgLinear.setBackgroundColor(Color.GREEN);
-               holder.blink();
-            } else if (conerer <= start2) {
-               holder.eventStatus.setText("Incoming Event");
-               holder.bgLinear.setBackgroundColor(Color.BLUE);
-            } else if (conerer >= end2) {
-               holder.eventStatus.setText("Expired Event");
-               holder.bgLinear.setBackgroundColor(Color.RED);
-            }
-
-         }else if (currentTime > expirationDate) {
-            holder.eventStatus.setText("Expired Event");
-            holder.bgLinear.setBackgroundColor(Color.RED);
-         }else if(currentTime < expirationDate) {
-            holder.eventStatus.setText("Incoming Event");
-            holder.bgLinear.setBackgroundColor(Color.BLUE);
-         }
-      } catch (ParseException e) {
-         e.printStackTrace();
+      String eventTag = postCurrent.getEvent_Tag();
+      if (eventTag.equals("Incoming")){
+          holder.eventStatus.setText("Incoming");
+          holder.bgLinear.setBackgroundColor(Color.BLUE);
       }
+
+      if (eventTag.equals("Done")){
+          holder.eventStatus.setText("Expired Event");
+          holder.bgLinear.setBackgroundColor(Color.RED);
+      }
+
+//      Date d = new Date();
+//      CharSequence da = DateFormat.format("yyyy-dd-MM", d.getTime());
+//
+//      SimpleDateFormat format = new SimpleDateFormat("yyyy-dd-MM");
+//      Date c = Calendar.getInstance().getTime();
+//      long currentTime = c.getTime();
+//
+//      try {
+//         Date date1 = format.parse(a);
+//         long expirationDate = date1.getTime();
+//
+//         CharSequence s = DateFormat.format("H:mma", d.getTime());
+//         SimpleDateFormat formatter = new SimpleDateFormat("h:mma");
+//         Date conver = formatter.parse((String) s);
+//         long conerer = conver.getTime();
+//
+//         Date start1 = formatter.parse(start);
+//         Date end1 = formatter.parse(end);
+//
+//         long start2 = start1.getTime();
+//         long end2 = end1.getTime();
+//         if(da.equals(a)){
+//            if (conerer >= start2 && conerer <= end2) {
+//               //Live Event
+//               holder.eventStatus.setText("Live");
+//               holder.bgLinear.setBackgroundColor(Color.GREEN);
+//               holder.blink();
+//            } else if (conerer <= start2) {
+//               holder.eventStatus.setText("Incoming");
+//               holder.bgLinear.setBackgroundColor(Color.BLUE);
+//            } else if (conerer >= end2) {
+//               holder.eventStatus.setText("Done");
+//               holder.bgLinear.setBackgroundColor(Color.RED);
+//            }
+//
+//         }else if (currentTime > expirationDate) {
+//            holder.eventStatus.setText("Done");
+//            holder.bgLinear.setBackgroundColor(Color.RED);
+//         }else if(currentTime < expirationDate) {
+//            holder.eventStatus.setText("Incoming");
+//            holder.bgLinear.setBackgroundColor(Color.BLUE);
+//         }
+//      } catch (ParseException e) {
+//         e.printStackTrace();
+//      }
    }
 
    //Loop ite
@@ -158,7 +177,7 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
          public void onClick(View v) {
             Intent i = new Intent(mContext, View_Post_Description.class);
             i.putExtra("Announcement_Picture", mPosts.get(position).getAnnouncement_Picture());
-            i.putExtra("Donation_Goal",mPosts.get(position).getDonations_Goal());
+//            i.putExtra("Donation_Goal",mPosts.get(position).getDonations_Goal());
             i.putExtra("Campaign_Title",mPosts.get(position).getCampaign_Title());
             i.putExtra("Story_Description",mPosts.get(position).getStory_Description());
             i.putExtra("Author",mPosts.get(position).getAuthor());

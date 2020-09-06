@@ -1,10 +1,7 @@
 package com.malabiga.kapwatekadmin.Home_View;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.media.Image;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateFormat;
@@ -14,14 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
@@ -39,26 +34,19 @@ import com.google.firebase.database.ValueEventListener;
 import com.malabiga.kapwatekadmin.Approval.EMP_COM_Approval.ViewEmployeesAccount;
 import com.malabiga.kapwatekadmin.Approval.Post_Approval.ORG_Home_Cardview_Adapter;
 import com.malabiga.kapwatekadmin.Approval.VOL_Approval.ViewVolunteersAccount;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Accidents;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Animals;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Church;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Education;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Medical;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Music;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Sport;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Volunteer;
-import com.malabiga.kapwatekadmin.Home_View.Categories.Wedding;
+import com.malabiga.kapwatekadmin.Home_View.Categories.Advocacy;
+import com.malabiga.kapwatekadmin.Home_View.Categories.Campaign;
+import com.malabiga.kapwatekadmin.Home_View.Categories.Cause;
+import com.malabiga.kapwatekadmin.Home_View.Categories.Marathon;
+import com.malabiga.kapwatekadmin.Home_View.Categories.Charity;
 import com.malabiga.kapwatekadmin.Map.ViewPeople;
 import com.malabiga.kapwatekadmin.Model.PostNewInformation;
 import com.malabiga.kapwatekadmin.R;
-
-import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -82,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseRef, mDataAccount;
     private List<PostNewInformation> mPosts;
 
+    private Handler handler = new Handler();
     private int countNotification = 0, countNotification2 = 0;
     TextView fullname, vol_email;
     ImageView imgProfile = null;
@@ -93,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     ViewFlipper v_flipper;
     ImageView mSearch, notification;
 
-    TextView accident, animal, music, education, medical, church, sport, volunteer, wedding;
+    TextView advocacy, campaign, charity, cause, marathon, church, sport, volunteer, wedding;
 
     private long backPressedTime;
     private Toast backToast;
@@ -112,15 +101,13 @@ public class MainActivity extends AppCompatActivity {
 
         time = findViewById(R.id.time);
         notification = findViewById(R.id.notification);
-        accident = findViewById(R.id.accident);
-        animal = findViewById(R.id.animal);
-        music = findViewById(R.id.music);
-        education = findViewById(R.id.education);
-        medical = findViewById(R.id.medical);
-        church = findViewById(R.id.church);
-        sport = findViewById(R.id.sport);
-        volunteer = findViewById(R.id.volunteer);
-        wedding = findViewById(R.id.wedding);
+        advocacy = findViewById(R.id.accident);
+        campaign = findViewById(R.id.animal);
+        charity = findViewById(R.id.music);
+        cause = findViewById(R.id.education);
+        marathon = findViewById(R.id.medical);
+
+        GetPoints();
 
 
         live = findViewById(R.id.live);
@@ -197,74 +184,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        accident.setOnClickListener(new View.OnClickListener() {
+        advocacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Accidents.class);
+                Intent i = new Intent(MainActivity.this, Advocacy.class);
                 startActivity(i);
             }
         });
 
-        animal.setOnClickListener(new View.OnClickListener() {
+        campaign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Animals.class);
+                Intent i = new Intent(MainActivity.this, Campaign.class);
                 startActivity(i);
             }
         });
 
-        music.setOnClickListener(new View.OnClickListener() {
+        charity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Music.class);
+                Intent i = new Intent(MainActivity.this, Charity.class);
                 startActivity(i);
             }
         });
 
-        education.setOnClickListener(new View.OnClickListener() {
+        cause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Education.class);
+                Intent i = new Intent(MainActivity.this, Cause.class);
                 startActivity(i);
             }
         });
 
-        medical.setOnClickListener(new View.OnClickListener() {
+        marathon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Medical.class);
-                startActivity(i);
-            }
-        });
-
-        church.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Church.class);
-                startActivity(i);
-            }
-        });
-
-        sport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Sport.class);
-                startActivity(i);
-            }
-        });
-
-        volunteer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Volunteer.class);
-                startActivity(i);
-            }
-        });
-
-        wedding.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Wedding.class);
+                Intent i = new Intent(MainActivity.this, Marathon.class);
                 startActivity(i);
             }
         });
@@ -423,6 +378,186 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    private void GetPoints() {
+        handler = new Handler();
+        Runnable r = new Runnable() {
+            public void run() {
+
+                final DatabaseReference campaignData = FirebaseDatabase.getInstance().getReference("Campaign_ad");
+                campaignData.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (final DataSnapshot postSnaphot : dataSnapshot.getChildren()) {
+                            String parent = postSnaphot.getKey();
+                            if (postSnaphot.hasChild("event_Tag") && postSnaphot.hasChild("remarks")) {
+                                String event_Tag = postSnaphot.child("event_Tag").getValue().toString();
+                                String remarks = postSnaphot.child("remarks").getValue().toString();
+                                if (event_Tag.equals("Done") && remarks.equals("Event On Going")) {
+                                    campaignData.child(parent).child("remarks").setValue("done");
+// GET DONATIONS POINTS
+                                    //check if donation is visible
+                                    if (postSnaphot.hasChild("donations")) {
+                                        //for loop
+                                        for (DataSnapshot postDonations : postSnaphot.child("donations").getChildren()) {
+
+                                            final String amount = postDonations.child("amount").getValue().toString();
+                                            //check if has uid
+                                            if (postDonations.hasChild("uid")) {
+                                                String uid = postDonations.child("uid").getValue().toString();
+                                                final DatabaseReference dataUser = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                                                dataUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                        if (dataSnapshot.hasChild("donation")) {
+                                                            String userTotalAmount = dataSnapshot.child("donation").child("donationPool").getValue().toString();
+                                                            Double convertUserTotalAmount = Double.parseDouble(userTotalAmount);
+                                                            Double convertAmount = Double.parseDouble(amount) / 200.0;
+                                                            Double totalAmount = convertAmount + convertUserTotalAmount;
+                                                            dataUser.child("donation").child("donationPool").setValue(totalAmount);
+                                                        } else {
+
+                                                            Double convertAmount = Double.parseDouble(amount) / 200.0;
+                                                            dataUser.child("donation").child("donationPool").setValue(convertAmount);
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+// GET Volunteers POINTS
+                                    if (postSnaphot.hasChild("volunteers")) {
+                                        for (DataSnapshot postVolunteers : postSnaphot.child("volunteers").getChildren()) {
+                                            if (postVolunteers.hasChild("uid")) {
+                                                String uid = postVolunteers.child("uid").getValue().toString();
+                                                final DatabaseReference dataUser = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                                                dataUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                        if (dataSnapshot.hasChild("compensation")) {
+                                                            String d = dataSnapshot.child("compensation").child("compensationPool").getValue().toString();
+                                                            String e = String.valueOf(Double.parseDouble(d) + 1);
+                                                            dataUser.child("compensation").child("compensationPool").setValue(e);
+                                                        } else {
+                                                            dataUser.child("compensation").child("compensationPool").setValue("1");
+                                                        }
+
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+
+
+//GET PLEDGES POINTS
+
+                                    DatabaseReference campaignData = FirebaseDatabase.getInstance().getReference("Campaign_ad");
+                                    campaignData.orderByChild("typeStatus").equalTo("Approved").addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            for (DataSnapshot campaignSnapShot : dataSnapshot.getChildren()) {
+                                                if (postSnaphot.hasChild("event_Tag") && postSnaphot.hasChild("remarks")) {
+                                                    String remarks = campaignSnapShot.child("remarks").getValue().toString();
+                                                    String event_Tag = campaignSnapShot.child("event_Tag").getValue().toString();
+                                                    if (event_Tag.equals("Done") && remarks.equals("Event On Going")) {
+//PledgeDATA
+                                                        final DatabaseReference pledgeData = FirebaseDatabase.getInstance().getReference("Pledges");
+                                                        pledgeData.addValueEventListener(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                for (DataSnapshot postSnaphot : dataSnapshot.getChildren()) {
+                                                                    String uid = postSnaphot.child("uid").getValue().toString();
+//get Pledge Volunteer
+                                                                    if (postSnaphot.hasChild("total_volunteers")) {
+                                                                        String total_volunteers = postSnaphot.child("total_volunteers").getValue().toString();
+                                                                        final Double totalConvert = Double.parseDouble(total_volunteers);
+                                                                        //User data
+                                                                        final DatabaseReference userData = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                                                                        userData.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                            @Override
+                                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                                if (dataSnapshot.hasChild("compensation")) {
+                                                                                    String compensation = dataSnapshot.child("compensation").child("compensationPool").getValue().toString();
+                                                                                    Double compensationTotal = Double.parseDouble(compensation) + totalConvert;
+                                                                                    userData.child("compensation").child("compensationPool").setValue(compensationTotal);
+                                                                                } else {
+                                                                                    userData.child("compensation").child("compensationPool").setValue(totalConvert);
+                                                                                }
+                                                                            }
+
+                                                                            @Override
+                                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                    if (postSnaphot.hasChild("total_donations")) {
+                                                                        String total_donations = postSnaphot.child("total_donations").getValue().toString();
+                                                                        final Double totalConvert = Double.parseDouble(total_donations) / 200.0;
+                                                                        //User data
+                                                                        final DatabaseReference userData = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                                                                        userData.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                            @Override
+                                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                                if (dataSnapshot.hasChild("pledge")) {
+                                                                                    String compensation = dataSnapshot.child("pledge").child("pledgePool").getValue().toString();
+                                                                                    Double compensationTotal = Double.parseDouble(compensation) + totalConvert;
+                                                                                    userData.child("pledge").child("pledgePool").setValue(compensationTotal);
+                                                                                } else {
+                                                                                    userData.child("pledge").child("pledgePool").setValue(totalConvert);
+                                                                                }
+                                                                            }
+
+                                                                            @Override
+                                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                }
+                                                            }
+
+                                                            @Override
+                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                            }
+                                                        });
+
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        };
+        handler.postDelayed(r, 1000);
+
+    }
+
     private void updateTagEvent() {
 
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Campaign_ad");
@@ -434,7 +569,7 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     parent = postSnapshot.getKey();
                     String start = postSnapshot.child("start_of_Event").getValue().toString();
-                    String end = postSnapshot.child("endof_Event").getValue().toString();
+                    String end = postSnapshot.child("end_of_Event").getValue().toString();
                     String a = postSnapshot.child("dateof_Event").getValue().toString();
                     Date d = new Date();
                     CharSequence da = DateFormat.format("yyyy-dd-MM", d.getTime());
@@ -447,8 +582,8 @@ public class MainActivity extends AppCompatActivity {
                         Date date1 = format.parse(a);
                         long expirationDate = date1.getTime();
 
-                        CharSequence s = DateFormat.format("H:mma", d.getTime());
-                        SimpleDateFormat formatter = new SimpleDateFormat("h:mma");
+                        CharSequence s = DateFormat.format("H:mm", d.getTime());
+                        SimpleDateFormat formatter = new SimpleDateFormat("h:mm");
                         Date conver = formatter.parse((String) s);
                         long conerer = conver.getTime();
 
@@ -461,17 +596,17 @@ public class MainActivity extends AppCompatActivity {
                             if (conerer >= start2 && conerer <= end2) {
                                 //Live Event
                                 if (dataSnapshot.exists()) {
-                                    databaseReference.child(parent).child("event_Tag").setValue("Happening Event");
+                                    databaseReference.child(parent).child("event_Tag").setValue("Happening Now");
                                 }
                             } else if (conerer <= start2) {
-                                databaseReference.child(parent).child("event_Tag").setValue("Incoming Event");
+                                databaseReference.child(parent).child("event_Tag").setValue("Incoming");
                             } else if (conerer >= end2) {
-                                databaseReference.child(parent).child("event_Tag").setValue("Expired Event");
+                                databaseReference.child(parent).child("event_Tag").setValue("Done");
                             }
                         } else if (currentTime > expirationDate) {
-                            databaseReference.child(parent).child("event_Tag").setValue("Expired Event");
+                            databaseReference.child(parent).child("event_Tag").setValue("Done");
                         } else if (currentTime < expirationDate) {
-                            databaseReference.child(parent).child("event_Tag").setValue("Incoming Event");
+                            databaseReference.child(parent).child("event_Tag").setValue("Incoming");
                         }
                     } catch (ParseException e) {
                         e.printStackTrace();
@@ -562,6 +697,7 @@ public class MainActivity extends AppCompatActivity {
                     school.setText(Integer.toString(countNotification));
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(MainActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
@@ -581,6 +717,7 @@ public class MainActivity extends AppCompatActivity {
                     lgu.setText(Integer.toString(countNotification));
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(MainActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
@@ -600,6 +737,7 @@ public class MainActivity extends AppCompatActivity {
                     company.setText(Integer.toString(countNotification));
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(MainActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
@@ -618,6 +756,7 @@ public class MainActivity extends AppCompatActivity {
                     ngo.setText(Integer.toString(countNotification));
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(MainActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
@@ -637,6 +776,7 @@ public class MainActivity extends AppCompatActivity {
                     volunteer1.setText(Integer.toString(countNotification));
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(MainActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();

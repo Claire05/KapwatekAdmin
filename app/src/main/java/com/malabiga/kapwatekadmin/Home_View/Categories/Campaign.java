@@ -1,6 +1,5 @@
 package com.malabiga.kapwatekadmin.Home_View.Categories;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -31,7 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.malabiga.kapwatekadmin.Approval.EMP_COM_Approval.ViewEmployeesAccount;
 import com.malabiga.kapwatekadmin.Approval.Post_Approval.ORG_Home_Cardview_Adapter;
 import com.malabiga.kapwatekadmin.Approval.VOL_Approval.ViewVolunteersAccount;
-import com.malabiga.kapwatekadmin.Home_View.LoginActivity;
 import com.malabiga.kapwatekadmin.Home_View.MainActivity;
 import com.malabiga.kapwatekadmin.Home_View.VOL_Notification_Post_Activity;
 import com.malabiga.kapwatekadmin.Model.PostNewInformation;
@@ -41,7 +38,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Music extends AppCompatActivity {
+public class Campaign extends AppCompatActivity {
+
+
     ImageView notification;
     private int countNotification = 0;
     private TextView notification_counter;
@@ -106,7 +105,7 @@ public class Music extends AppCompatActivity {
                 rootRef.orderByChild("typeStatus").equalTo("Pending").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        Intent i = new Intent(Music.this, VOL_Notification_Post_Activity.class);
+                        Intent i = new Intent(Campaign.this, VOL_Notification_Post_Activity.class);
                         startActivity(i);
                     }
 
@@ -130,32 +129,32 @@ public class Music extends AppCompatActivity {
                         int id = menuItem.getItemId();
                         switch (id) {
                             case R.id.nav_home_admin:
-                                Intent i = new Intent(Music.this, Music.class);
+                                Intent i = new Intent(Campaign.this, Campaign.class);
                                 startActivity(i);
                                 break;
                             case R.id.nav_view_vol:
-                                Intent iii = new Intent(Music.this, ViewVolunteersAccount.class);
+                                Intent iii = new Intent(Campaign.this, ViewVolunteersAccount.class);
                                 startActivity(iii);
                                 break;
                             case R.id.nav_view_company:
-                                Intent ii = new Intent(Music.this, ViewEmployeesAccount.class);
+                                Intent ii = new Intent(Campaign.this, ViewEmployeesAccount.class);
                                 startActivity(ii);
                                 break;
                             case R.id.nav_view_ngo:
-                                Intent ii1 = new Intent(Music.this, com.malabiga.kapwatekadmin.Approval.EMP_NGO_Approval.ViewEmployeesAccount.class);
+                                Intent ii1 = new Intent(Campaign.this, com.malabiga.kapwatekadmin.Approval.EMP_NGO_Approval.ViewEmployeesAccount.class);
                                 startActivity(ii1);
                                 break;
                             case R.id.nav_view_lgu:
-                                Intent ii2 = new Intent(Music.this, com.malabiga.kapwatekadmin.Approval.EMP_LGU_Approval.ViewEmployeesAccount.class);
+                                Intent ii2 = new Intent(Campaign.this, com.malabiga.kapwatekadmin.Approval.EMP_LGU_Approval.ViewEmployeesAccount.class);
                                 startActivity(ii2);
                                 break;
                             case R.id.nav_view_school:
-                                Intent ii3 = new Intent(Music.this, com.malabiga.kapwatekadmin.Approval.EMP_SCL_Approval.ViewEmployeesAccount.class);
+                                Intent ii3 = new Intent(Campaign.this, com.malabiga.kapwatekadmin.Approval.EMP_SCL_Approval.ViewEmployeesAccount.class);
                                 startActivity(ii3);
                                 break;
 //                            case R.id.nav_logout_admin:
 //
-//                                AlertDialog.Builder alert = new AlertDialog.Builder(Music.this);
+//                                AlertDialog.Builder alert = new AlertDialog.Builder(Animals.this);
 //                                alert.setMessage("By clicking Yes, you will return to the login screen.").setCancelable(false)
 //                                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 //                                            @Override
@@ -165,7 +164,7 @@ public class Music extends AppCompatActivity {
 //                                                //closing activity
 //                                                finish();
 //                                                //starting login activity
-//                                                startActivity(new Intent(Music.this, LoginActivity.class));
+//                                                startActivity(new Intent(Animals.this, LoginActivity.class));
 //                                            }
 //                                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
 //                                    @Override
@@ -204,7 +203,7 @@ public class Music extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Campaign_ad");
-        mDatabaseRef.orderByChild("category").equalTo("Musics, Arts, and Films").addValueEventListener(new ValueEventListener() {
+        mDatabaseRef.orderByChild("campaign_Type").equalTo("Campaign").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //Call for the Model
@@ -215,13 +214,13 @@ public class Music extends AppCompatActivity {
                 }
 //Call the View Class
                 Collections.reverse(mPosts);
-                mAdapter = new ORG_Home_Cardview_Adapter(Music.this, mPosts);
+                mAdapter = new ORG_Home_Cardview_Adapter(Campaign.this, mPosts);
                 mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Music.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Campaign.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

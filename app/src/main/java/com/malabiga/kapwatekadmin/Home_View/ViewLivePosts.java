@@ -223,7 +223,7 @@ public class ViewLivePosts extends AppCompatActivity {
                 mPosts = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     String start = postSnapshot.child("start_of_Event").getValue().toString();
-                    String end = postSnapshot.child("endof_Event").getValue().toString();
+                    String end = postSnapshot.child("end_of_Event").getValue().toString();
                     String a = postSnapshot.child("dateof_Event").getValue().toString();
                     Date d = new Date();
                     CharSequence da = DateFormat.format("yyyy-dd-MM", d.getTime());
@@ -236,8 +236,8 @@ public class ViewLivePosts extends AppCompatActivity {
                         Date date1 = format.parse(a);
                         long expirationDate = date1.getTime();
 
-                        CharSequence s = DateFormat.format("H:mma", d.getTime());
-                        SimpleDateFormat formatter = new SimpleDateFormat("h:mma");
+                        CharSequence s = DateFormat.format("H:mm", d.getTime());
+                        SimpleDateFormat formatter = new SimpleDateFormat("h:mm");
                         Date conver = formatter.parse((String) s);
                         long conerer = conver.getTime();
 

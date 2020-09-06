@@ -85,11 +85,9 @@ public class ViewEployeesAccountAdapter extends RecyclerView.Adapter<ViewEployee
             container = itemView.findViewById(R.id.btnView_emp);
             date = itemView.findViewById(R.id.date);
             email = itemView.findViewById(R.id.email);
-
         }
 
         public void onClick(final int position) {
-
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

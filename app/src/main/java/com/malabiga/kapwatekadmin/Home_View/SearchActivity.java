@@ -86,7 +86,7 @@ public class SearchActivity extends AppCompatActivity {
                         String title = model.getCampaign_Title();
                         String author = model.getAuthor();
                         String story = model.getStory_Description();
-                        String goal = model.getDonations_Goal();
+//                        String goal = model.getDonations_Goal();
                         String date = model.getDate_Posted();
                         String time = model.getTime();
                         String status = model.getTypeStatus();
@@ -94,7 +94,7 @@ public class SearchActivity extends AppCompatActivity {
                         intent.putExtra("Campaign_Title",title);
                         intent.putExtra("Author",author);
                         intent.putExtra("Story_Description",story);
-                        intent.putExtra("Donation_Goal",goal);
+//                        intent.putExtra("Donation_Goal",goal);
                         intent.putExtra("typeStatus",status);
                         intent.putExtra("Date_Posted",date);
                         intent.putExtra("time",time);

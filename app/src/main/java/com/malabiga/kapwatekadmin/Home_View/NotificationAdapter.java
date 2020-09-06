@@ -83,7 +83,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 public void onClick(View v) {
                     Intent i = new Intent(mContext, View_Post_Description.class);
                     i.putExtra("Announcement_Picture", mPosts.get(position).getAnnouncement_Picture());
-                    i.putExtra("Donation_Goal",mPosts.get(position).getDonations_Goal());
+//                    i.putExtra("Donation_Goal",mPosts.get(position).getDonations_Goal());
                     i.putExtra("Campaign_Title",mPosts.get(position).getCampaign_Title());
                     i.putExtra("Story_Description",mPosts.get(position).getStory_Description());
                     i.putExtra("Author",mPosts.get(position).getAuthor());
