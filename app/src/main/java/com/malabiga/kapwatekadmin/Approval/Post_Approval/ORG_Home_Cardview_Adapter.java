@@ -16,6 +16,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.malabiga.kapwatekadmin.Home_View.Donators.View_Donators;
 import com.malabiga.kapwatekadmin.Model.PostNewInformation;
 import com.malabiga.kapwatekadmin.Home_View.Participate.View_Particapates;
@@ -50,7 +55,7 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
 
    //In this method, we are going get our data
    @Override
-   public void onBindViewHolder(@NonNull postViewHolder holder, int position) {
+   public void onBindViewHolder(@NonNull final postViewHolder holder, int position) {
 //we used posts to get our reference
       PostNewInformation postCurrent = mPosts.get(position);
 //This will call all the contents that we added from the admin posts, the getTitle came from the Posts
@@ -81,6 +86,31 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
          holder.textViewSummary.setText(postCurrent.getStory_Description());
       }
 
+      DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Campaign_ad");
+      databaseReference.orderByChild("campaign_Title").equalTo(title).addListenerForSingleValueEvent(new ValueEventListener() {
+         @Override
+         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+
+               if (postSnapshot.hasChild("volunteers_Goal")){
+                  String volunteerGoal = postSnapshot.child("volunteers_Goal").getValue().toString();
+                  holder.tv_volunteerGoal.setVisibility(View.VISIBLE);
+                  holder.tv_volunteerGoal.setText("Volunteers needed: " + volunteerGoal);
+               }
+               if (postSnapshot.hasChild("donations_Goal")){
+                  String goal = postSnapshot.child("donations_Goal").getValue().toString();
+                  holder.textViewGoal.setVisibility(View.VISIBLE);
+                  holder.textViewGoal.setText("Goal: ₱" + goal + ".00");
+               }
+            }
+         }
+
+         @Override
+         public void onCancelled(@NonNull DatabaseError databaseError) {
+
+         }
+      });
+
 //We Used Picasso to also call the image URL and Push it in the view post, WE USED CENTER CROP TO GET THE IMAGE FULLY
       Picasso.get().load(postCurrent.getAnnouncement_Picture()).resize(200,100).into(holder.imageView);
 
@@ -94,52 +124,6 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
           holder.eventStatus.setText("Expired Event");
           holder.bgLinear.setBackgroundColor(Color.RED);
       }
-
-//      Date d = new Date();
-//      CharSequence da = DateFormat.format("yyyy-dd-MM", d.getTime());
-//
-//      SimpleDateFormat format = new SimpleDateFormat("yyyy-dd-MM");
-//      Date c = Calendar.getInstance().getTime();
-//      long currentTime = c.getTime();
-//
-//      try {
-//         Date date1 = format.parse(a);
-//         long expirationDate = date1.getTime();
-//
-//         CharSequence s = DateFormat.format("H:mma", d.getTime());
-//         SimpleDateFormat formatter = new SimpleDateFormat("h:mma");
-//         Date conver = formatter.parse((String) s);
-//         long conerer = conver.getTime();
-//
-//         Date start1 = formatter.parse(start);
-//         Date end1 = formatter.parse(end);
-//
-//         long start2 = start1.getTime();
-//         long end2 = end1.getTime();
-//         if(da.equals(a)){
-//            if (conerer >= start2 && conerer <= end2) {
-//               //Live Event
-//               holder.eventStatus.setText("Live");
-//               holder.bgLinear.setBackgroundColor(Color.GREEN);
-//               holder.blink();
-//            } else if (conerer <= start2) {
-//               holder.eventStatus.setText("Incoming");
-//               holder.bgLinear.setBackgroundColor(Color.BLUE);
-//            } else if (conerer >= end2) {
-//               holder.eventStatus.setText("Done");
-//               holder.bgLinear.setBackgroundColor(Color.RED);
-//            }
-//
-//         }else if (currentTime > expirationDate) {
-//            holder.eventStatus.setText("Done");
-//            holder.bgLinear.setBackgroundColor(Color.RED);
-//         }else if(currentTime < expirationDate) {
-//            holder.eventStatus.setText("Incoming");
-//            holder.bgLinear.setBackgroundColor(Color.BLUE);
-//         }
-//      } catch (ParseException e) {
-//         e.printStackTrace();
-//      }
    }
 
    //Loop ite
@@ -150,7 +134,7 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
 
    public class postViewHolder extends RecyclerView.ViewHolder{
 
-      public TextView textViewGoal,textViewTitle, textViewSummary,textViewStatus, eventStatus;
+      public TextView textViewGoal,textViewTitle, textViewSummary,textViewStatus, eventStatus, tv_volunteerGoal;
       public ImageView imageView;
       Button btnViewPost, btn_viewDonators, btn_participate;
       LinearLayout bgLinear;
@@ -169,6 +153,7 @@ public class ORG_Home_Cardview_Adapter extends RecyclerView.Adapter<ORG_Home_Car
          btnViewPost=itemView.findViewById(R.id.btnViewPost);
          btn_viewDonators= itemView.findViewById(R.id.btn_viewDonators);
          btn_participate = itemView.findViewById(R.id.btn_participate);
+         tv_volunteerGoal = itemView.findViewById(R.id.tv_volunteerGoal);
       }
 
       public void onClick(final int position) {

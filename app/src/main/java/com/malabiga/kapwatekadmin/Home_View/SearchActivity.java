@@ -90,10 +90,12 @@ public class SearchActivity extends AppCompatActivity {
                         String date = model.getDate_Posted();
                         String time = model.getTime();
                         String status = model.getTypeStatus();
+                        String address = model.getAddress();
                         intent.putExtra("Announcement_Picture",image);
                         intent.putExtra("Campaign_Title",title);
                         intent.putExtra("Author",author);
                         intent.putExtra("Story_Description",story);
+                        intent.putExtra("address", address);
 //                        intent.putExtra("Donation_Goal",goal);
                         intent.putExtra("typeStatus",status);
                         intent.putExtra("Date_Posted",date);

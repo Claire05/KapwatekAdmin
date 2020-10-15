@@ -394,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
                                 String remarks = postSnaphot.child("remarks").getValue().toString();
                                 if (event_Tag.equals("Done") && remarks.equals("Event On Going")) {
                                     campaignData.child(parent).child("remarks").setValue("done");
-// GET DONATIONS POINTS
+                                // GET DONATIONS POINTS
                                     //check if donation is visible
                                     if (postSnaphot.hasChild("donations")) {
                                         //for loop
@@ -429,7 +429,7 @@ public class MainActivity extends AppCompatActivity {
                                             }
                                         }
                                     }
-// GET Volunteers POINTS
+                                    // GET Volunteers POINTS
                                     if (postSnaphot.hasChild("volunteers")) {
                                         for (DataSnapshot postVolunteers : postSnaphot.child("volunteers").getChildren()) {
                                             if (postVolunteers.hasChild("uid")) {
@@ -458,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
 
 
-//GET PLEDGES POINTS
+                                    //GET PLEDGES POINTS
 
                                     DatabaseReference campaignData = FirebaseDatabase.getInstance().getReference("Campaign_ad");
                                     campaignData.orderByChild("typeStatus").equalTo("Approved").addValueEventListener(new ValueEventListener() {
@@ -470,13 +470,15 @@ public class MainActivity extends AppCompatActivity {
                                                     String event_Tag = campaignSnapShot.child("event_Tag").getValue().toString();
                                                     if (event_Tag.equals("Done") && remarks.equals("Event On Going")) {
 //PledgeDATA
+
+
                                                         final DatabaseReference pledgeData = FirebaseDatabase.getInstance().getReference("Pledges");
                                                         pledgeData.addValueEventListener(new ValueEventListener() {
                                                             @Override
                                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                                 for (DataSnapshot postSnaphot : dataSnapshot.getChildren()) {
                                                                     String uid = postSnaphot.child("uid").getValue().toString();
-//get Pledge Volunteer
+                                                                    //get Pledge Volunteer
                                                                     if (postSnaphot.hasChild("total_volunteers")) {
                                                                         String total_volunteers = postSnaphot.child("total_volunteers").getValue().toString();
                                                                         final Double totalConvert = Double.parseDouble(total_volunteers);
@@ -500,6 +502,8 @@ public class MainActivity extends AppCompatActivity {
                                                                             }
                                                                         });
                                                                     }
+
+                                                                    //Get Pledge Donations
                                                                     if (postSnaphot.hasChild("total_donations")) {
                                                                         String total_donations = postSnaphot.child("total_donations").getValue().toString();
                                                                         final Double totalConvert = Double.parseDouble(total_donations) / 200.0;

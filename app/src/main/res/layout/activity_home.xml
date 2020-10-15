@@ -160,7 +160,7 @@
                                 android:layout_height="176dp"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="5dp"
-                                android:src="@drawable/accident1" />
+                                android:src="@drawable/animal" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -208,7 +208,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="176dp"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/animal" />
+                                android:src="@drawable/music" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -241,10 +241,7 @@
                                 android:text="View Details"
                                 android:textColor="@color/red"
                                 android:textSize="18dp" />
-
-
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -259,7 +256,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="176dp"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/music" />
+                                android:src="@drawable/medical" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -309,7 +306,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="176dp"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/education" />
+                                android:src="@drawable/accident1" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -360,7 +357,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="176dp"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/sport" />
+                                android:src="@drawable/sport3" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -384,208 +381,6 @@
 
                             <TextView
                                 android:id="@+id/medical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                android:text="View Details"
-                                android:textColor="@color/red"
-                                android:textSize="18dp" />
-
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:background="@color/white"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="176dp"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/church" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Mission, Faith, and Church"
-                                android:textColor="@color/black"
-                                android:textSize="20dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
-                                android:textSize="15dp" />
-
-                            <TextView
-                                android:id="@+id/church"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                android:text="View Details"
-                                android:textColor="@color/red"
-                                android:textSize="18dp" />
-
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:background="@color/white"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="176dp"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/sport1" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Sport, Team, and Clubs"
-                                android:textColor="@color/black"
-                                android:textSize="20dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
-                                android:textSize="15dp" />
-
-                            <TextView
-                                android:id="@+id/sport"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                android:text="View Details"
-                                android:textColor="@color/red"
-                                android:textSize="18dp" />
-
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:background="@color/white"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="176dp"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/header" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Volunteer and Services"
-                                android:textColor="@color/black"
-                                android:textSize="20dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
-                                android:textSize="15dp" />
-
-                            <TextView
-                                android:id="@+id/volunteer"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                android:text="View Details"
-                                android:textColor="@color/red"
-                                android:textSize="18dp" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:background="@color/white"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="176dp"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/wedding" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Weddings and Honeymoon"
-                                android:textColor="@color/black"
-                                android:textSize="20dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="Lorem i[sum dolor sot amet, consectetur adipscing alit. Etiam efficitur ipsum in placerat molestie. Fusce quiz mauris a enim sollicitidun"
-                                android:textSize="15dp" />
-
-                            <TextView
-                                android:id="@+id/wedding"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"

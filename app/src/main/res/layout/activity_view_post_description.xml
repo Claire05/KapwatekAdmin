@@ -45,27 +45,36 @@
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="@+id/description_img">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Goal: ₱"
-                        android:textColor="#000" />
 
-                    <TextView
-                        android:id="@+id/descriptionGoal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/montserrat"
-                        android:text="9,999,99"
-                        android:textColor="@color/black" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat"
-                        android:text=".00"
-                        android:textColor="@color/black" />
+                        <TextView
+                            android:id="@+id/descriptionGoal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/montserrat"
+                            android:paddingLeft="15dp"
+                            android:visibility="gone"
+                            android:text="9,999,99"
+                            android:textColor="@color/black"
+                            android:textSize="11dp"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/descriptionVolunteer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/montserrat"
+                            android:paddingRight="15dp"
+                            android:text="Participants"
+                            android:visibility="gone"
+                            android:textColor="@color/black"
+                            android:textSize="11dp"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </LinearLayout>
 
 

@@ -26,7 +26,7 @@ import com.squareup.picasso.Picasso;
 
 public class View_Post_Description extends AppCompatActivity {
     DatabaseReference reference;
-    TextView title, description, goal, author, date1, status, time, address;
+    TextView title, description, goal, author, date1, status, time, address, volunteerGoal;
     ImageView picture;
     Button btnApprove;
 
@@ -43,6 +43,7 @@ public class View_Post_Description extends AppCompatActivity {
         status = findViewById(R.id.status_post);
         time = findViewById(R.id.time);
         address = findViewById(R.id.address);
+        volunteerGoal = findViewById(R.id.descriptionVolunteer);
 
         final String postImage = getIntent().getExtras().getString("Announcement_Picture");
         Picasso.get().load(postImage).resize(200, 100).into(picture);
@@ -62,6 +63,30 @@ public class View_Post_Description extends AppCompatActivity {
         time.setText(postTime);
         String postAddress = getIntent().getExtras().getString("address");
         address.setText(postAddress);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Campaign_ad");
+        databaseReference.orderByChild("campaign_Title").equalTo(postTitle).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    if (postSnapshot.hasChild("donations_Goal")) {
+                        String goal1 = postSnapshot.child("donations_Goal").getValue().toString();
+                        goal.setText("Donation's goal: ₱" + goal1 + ".00");
+                        goal.setVisibility(View.VISIBLE);
+                    }
+
+                    if (postSnapshot.hasChild("volunteers_Goal")) {
+                        String goal1 = postSnapshot.child("volunteers_Goal").getValue().toString();
+                        volunteerGoal.setText("Volunteer's goal: " + goal1);
+                        volunteerGoal.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
 
 
         Spinner setPermission = findViewById(R.id.spinnerChangeStatus);

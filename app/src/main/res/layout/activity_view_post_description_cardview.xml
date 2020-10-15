@@ -31,29 +31,14 @@
                 android:paddingTop="5dp"
                 app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-
-                <TextView
-                    android:id="@+id/tv_goalPostView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/montserrat"
-                    android:text="9,999,99"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="@+id/img_imagePostView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
             android:background="@color/white"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/bgLinear"
@@ -76,6 +61,42 @@
                     android:text=""
                     android:textColor="@color/white"
                     android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_goalPostView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat"
+                    android:paddingRight="15dp"
+                    android:text="9,999,99"
+                    android:visibility="gone"
+                    android:textColor="@color/kapwatek"
+                    android:textSize="11dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_volunteerGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat"
+                    android:paddingRight="15dp"
+                    android:text="Participant"
+                    android:visibility="gone"
+                    android:textColor="@color/kapwatek"
+                    android:textSize="11dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
             </LinearLayout>
         </LinearLayout>
 

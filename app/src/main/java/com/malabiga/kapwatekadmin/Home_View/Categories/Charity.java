@@ -30,6 +30,7 @@ import com.malabiga.kapwatekadmin.Approval.EMP_COM_Approval.ViewEmployeesAccount
 import com.malabiga.kapwatekadmin.Approval.Post_Approval.ORG_Home_Cardview_Adapter;
 import com.malabiga.kapwatekadmin.Approval.VOL_Approval.ViewVolunteersAccount;
 import com.malabiga.kapwatekadmin.Home_View.MainActivity;
+import com.malabiga.kapwatekadmin.Home_View.SearchActivity;
 import com.malabiga.kapwatekadmin.Home_View.VOL_Notification_Post_Activity;
 import com.malabiga.kapwatekadmin.Model.PostNewInformation;
 import com.malabiga.kapwatekadmin.R;
@@ -65,6 +66,7 @@ public class Charity extends AppCompatActivity {
     String dp1;
     String companyName;
 
+    ImageView mSearch;
     protected void onCreate(Bundle savedInstanceState) {
         firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -76,6 +78,15 @@ public class Charity extends AppCompatActivity {
         setContentView(R.layout.activity_view_posts);
         content();
         time = findViewById(R.id.time);
+
+        mSearch = findViewById(R.id.search);
+        mSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Charity.this, SearchActivity.class);
+                startActivity(i);
+            }
+        });
 
         notification = findViewById(R.id.notification);
 
@@ -127,7 +138,7 @@ public class Charity extends AppCompatActivity {
                         int id = menuItem.getItemId();
                         switch (id) {
                             case R.id.nav_home_admin:
-                                Intent i = new Intent(Charity.this, Charity.class);
+                                Intent i = new Intent(Charity.this, MainActivity.class);
                                 startActivity(i);
                                 break;
                             case R.id.nav_view_vol:
